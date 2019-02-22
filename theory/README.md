@@ -73,5 +73,5 @@ A     B     C      carry   sum
 1     1     0        1      0
 1     1     1        1      1
 ```
-* SUM = all combinations of ((A xor B) and not C) || (not A and not B and C)
+* SUM = ((A xor B) and not C) || (not A and not B and C) || ((A xor C) and not B) || (not A and not C and B) || ((B xor C) and not A) || (not B and not C and A)
 * CARRY = (A && B) || (A && C) || (B && C)
