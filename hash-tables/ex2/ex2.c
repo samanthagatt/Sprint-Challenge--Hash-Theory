@@ -15,7 +15,6 @@ char **reconstruct_trip(Ticket **tickets, int length)
     }
     
     char *dest = hash_table_retrieve(ht, "NONE");
-    fprintf(stderr, "FIRST DESTINATION: %s", dest);
     route[0] = dest;
 
     for (int i = 1; i < length; i++)
