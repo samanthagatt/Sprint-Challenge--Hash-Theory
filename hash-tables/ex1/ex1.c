@@ -6,7 +6,7 @@
 Answer *get_indices_of_item_weights(int *weights, int length, int limit)
 {
     HashTable *ht = create_hash_table(16);
-    int *arr[length];
+    int arr[length];
     for (int i = 0; i < length; i++)
     {
         arr[i] = limit - weights[i];
@@ -17,12 +17,14 @@ Answer *get_indices_of_item_weights(int *weights, int length, int limit)
         int index = hash_table_retrieve(ht, arr[i]);
         if (index != -1 && index != i)
         {
+            destroy_hash_table(ht);
             Answer *answer = malloc(sizeof(Answer));
             answer->index_1 = index;
             answer->index_2 = i;
             return  answer;
         }
     }
+    destroy_hash_table(ht);
     return NULL;
 }
 
